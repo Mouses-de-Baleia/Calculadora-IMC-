@@ -1,12 +1,21 @@
+"""
+Inicialização das variáveis
+"""
 peso = 0
 altura = 0
-while peso == 0:
+
+"""
+Loops que impedem que o usuário digite um valor não numérico e/ou digite valores abaixo ou igual a 0, tanto para seu peso quanto para sua altura.
+Foi utilizado try e except para prevenir que o código quebre ao se inserir valores não numéricos.
+"""
+
+while peso <= 0:
   try:
     pesotext = input('Digite aqui seu peso em KG ')
     try:
       peso = float(pesotext.replace(",", "."))
-      if peso == 0:
-        print('Seu peso precisa ser diferente de 0')
+      if peso <= 0:
+        print('Seu peso precisa ser maior que 0')
       else:
         print(f'Seu peso é {peso}')
     except :
@@ -14,13 +23,13 @@ while peso == 0:
   except:
     print('Valor incorreto, digite apenas números')
 
-while altura == 0:
+while altura <= 0:
   try:
     alturatext = input('Digite aqui sua altura em Metros ')
     try:
       altura = float(alturatext.replace(",", "."))
-      if altura == 0:
-        print('Sua altura precisa ser diferente de 0')
+      if altura <= 0:
+        print('Sua altura precisa ser maior que 0')
       else:
         print(f'Sua altura é {altura}')
     except :
@@ -28,21 +37,30 @@ while altura == 0:
   except:
     print('Valor incorreto, digite apenas números')
 
+"""
+Ao concluir o preenchimento de informações o código faz o cálculo de IMC e apresenta ao usuário o valor.
+"""
+
 IMC = peso/(altura*altura)
 
 print(f'Seu IMC é {IMC:.2f}')
 
-if IMC < 16.9:
-  print('Valor muito abaixo do peso.')
-elif IMC < 18.5:
-  print ('Valor abaixo do peso.')
-elif IMC > 18.5 and IMC < 25:
-  print('Seu peso é normal.')
-elif IMC >= 25 and IMC <30:
-  print('Você está com sobrepeso.')
-elif IMC >= 30 and IMC < 34.9:
-  print('Você está com Obesidade 1.')
-elif IMC>= 34.9 and IMC<40:
-  print('Você está com Obesidade 2.')
-else:
-  print("Você está com Obesidade 3.")
+"""
+Por fim, o uso do match case para apresentar a classíficação de peso de acordo com o IMC do usuário.
+"""
+
+match IMC: 
+  case IMC if IMC < 16.9:
+    print('Valor muito abaixo do peso.')
+  case IMC if IMC < 18.5:
+    print ('Valor abaixo do peso.')
+  case IMC if IMC > 18.5 and IMC < 25:
+    print('Seu peso é normal.')
+  case IMC if IMC >= 25 and IMC <30:
+    print('Você está com sobrepeso.')
+  case IMC if IMC >= 30 and IMC < 34.9:
+    print('Você está com Obesidade 1.')
+  case IMC if IMC>= 34.9 and IMC<40:
+    print('Você está com Obesidade 2.')
+  case IMC if IMC >=40:
+    print("Você está com Obesidade 3.")
