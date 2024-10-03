@@ -22,6 +22,4 @@ Esta **calculadora de IMC (Índice de Massa Corporal)** desenvolvida em **Python
 1. Certifique-se de ter o Python instalado em seu sistema.
 2. Clone este repositório ou faça o download do código fonte.
 3. Abra o terminal e navegue até o diretório do projeto.
-4. Execute o programa com o comando:
-   ```bash
-   git clone (https://github.com/Mouses-de-Baleia/Calculadora-IMC-)
+4. Execute o programa.
